@@ -48,5 +48,16 @@ const workers =[
 ]
 
 
+// MILESTONE 1:
+// Stampare su console, per ogni membro del team, le informazioni di nome, ruolo e la stringa della foto
 
-console.log(workers);
+// for che scorre tutto l'array
+for(let i=0; i< workers.length; i++){
+
+    for(let key in workers[i]){
+        console.log(key+": " + workers[i][key]);
+    }
+
+    console.log("---------------------------------");
+
+}
