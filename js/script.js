@@ -51,13 +51,25 @@ const workers =[
 // MILESTONE 1:
 // Stampare su console, per ogni membro del team, le informazioni di nome, ruolo e la stringa della foto
 
+
+// MILESTONE 2:
+// Stampare le stesse informazioni su DOM sottoforma di stringhe
+
+const ulEl = document.querySelector("ul");
+
 // for che scorre tutto l'array
 for(let i=0; i< workers.length; i++){
 
+    const liEl = document.createElement("li");
+
+    let inner= "";
+
     for(let key in workers[i]){
-        console.log(key+": " + workers[i][key]);
+        inner += key+": " + workers[i][key]+"\n";
     }
 
-    console.log("---------------------------------");
+    liEl.innerText = inner;
+
+    ulEl.append(liEl);
 
 }
