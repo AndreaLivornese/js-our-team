@@ -80,7 +80,7 @@ for(let i=0; i< workers.length; i++){
 
     // creazione del corpo della card
     const cardbodyEl= document.createElement("div");
-    cardbodyEl.classList.add("card-body", "text-center", "fw-bold");
+    cardbodyEl.classList.add("card-body", "text-center", "fw-bold", "my_min_card-body_size");
 
     // stringa del contenuto del card-body
     let inner= "";
