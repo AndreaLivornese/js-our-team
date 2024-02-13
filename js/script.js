@@ -55,20 +55,29 @@ const workers =[
 // MILESTONE 2:
 // Stampare le stesse informazioni su DOM sottoforma di stringhe
 
+// BONUS 1:
+// Trasformare la stringa foto in una immagine effettiva
+
 const ulEl = document.querySelector("ul");
 
 // for che scorre tutto l'array
 for(let i=0; i< workers.length; i++){
 
     const liEl = document.createElement("li");
+    const imgEl = document.createElement("img");
 
     let inner= "";
 
     for(let key in workers[i]){
-        inner += key+": " + workers[i][key]+"\n";
+        if(key == "img"){
+            imgEl.src="./img/"+workers[i][key];
+        }else{
+            inner += key+": " + workers[i][key]+"\n";
+        }
     }
 
     liEl.innerText = inner;
+    liEl.append(imgEl);
 
     ulEl.append(liEl);
 
