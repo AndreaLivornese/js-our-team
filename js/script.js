@@ -58,27 +58,53 @@ const workers =[
 // BONUS 1:
 // Trasformare la stringa foto in una immagine effettiva
 
-const ulEl = document.querySelector("ul");
+
+// BONUS 2:
+// Organizzare i singoli membri in card/schede
+
+const rowEl = document.querySelector(".row");
 
 // for che scorre tutto l'array
 for(let i=0; i< workers.length; i++){
 
-    const liEl = document.createElement("li");
-    const imgEl = document.createElement("img");
+    // creazione del contenitore della card
+    const colEl = document.createElement("div");
+    colEl.classList.add("col", "p-3");
 
+    const cardEl = document.createElement("div");
+    cardEl.classList.add("card")
+
+    // creazione elemento per l'immagine del lavotore
+    const imgEl = document.createElement("img");
+    imgEl.classList.add("card-img-top");
+
+    // creazione del corpo della card
+    const cardbodyEl= document.createElement("div");
+    cardbodyEl.classList.add("card-body", "text-center", "fw-bold");
+
+    // stringa del contenuto del card-body
     let inner= "";
 
     for(let key in workers[i]){
         if(key == "img"){
             imgEl.src="./img/"+workers[i][key];
         }else{
-            inner += key+": " + workers[i][key]+"\n";
+            inner += workers[i][key]+"\n";
         }
     }
 
-    liEl.innerText = inner;
-    liEl.append(imgEl);
+    
+    cardbodyEl.innerText = inner;
 
-    ulEl.append(liEl);
+    // inserimento in pagina della colonna
+    rowEl.append(colEl);
+
+    // inserimento della card nella colonna
+    colEl.append(cardEl);
+
+    // inserimento dell'immagine e il card-body nella card
+    cardEl.append(imgEl, cardbodyEl);
+
+    
 
 }
